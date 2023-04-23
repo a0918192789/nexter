@@ -1,0 +1,55 @@
+.features{
+  grid-column: center-start/center-end;
+
+  margin: 15rem 0;
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;   //gap屬性是用來設置網格行與列之間的間隙
+  
+  // @media screen and (max-width: $bp-medium){
+  //   margin: 0;
+  //   grid-gap: 1rem;
+  // }
+
+  //@supports”並測試瀏覽器是否支持顯示網格｡如果是的話, 我們希望這裡的代碼能夠執行｡
+  @supports(display: grid){
+    grid-template-columns: repeat(3, minmax(25rem, 1fr));
+    grid-gap: 1rem;
+    align-items: start;
+  }
+}
+
+.feature{
+  float: left;
+  width: 33.333%;
+  margin-bottom: 6rem;
+
+  @supports(display: grid){
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &-icon{
+    font-size: 5rem;
+    color: $color-primary;
+    position: relative;
+    right: 5rem;
+
+    @media screen and (max-width: $bp-medium){
+      font-size: 2rem;
+    }
+  }
+
+  &-text{
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+    padding-top: 2rem;
+  }
+  
+}

@@ -1,0 +1,64 @@
+.header{
+  background-color: $color-grey-dark-1;
+  grid-column: full-start / col-end 6;
+  background-image: linear-gradient(rgb($color-secondary, 0.93), rgb($color-secondary, 0.93)) ,
+  url(../img/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 4rem;
+
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, max-content) 1fr;  //內容溢出
+  grid-template-columns: minmax(min-content, max-content);  //畫面縮小,文字換下一行
+  grid-gap: 1.5rem;
+  justify-content: center;
+
+  @media screen and (max-width: $bp-medium){
+    grid-column: full-start/col-end 9;
+  }
+  &-logo{
+    height: 3rem;
+    justify-self: center;
+  }
+
+  &-btn{
+    align-self: start;
+    justify-self: start;
+  }
+
+  &-seenon_text{
+    font-size: 1.6rem;
+    color: $color-grey-light-2;
+
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;   
+    //左邊和右邊是一樣的,佔據所有剩餘的空間, 然後是中間的文本｡
+
+    grid-column-gap: 1.5rem;
+    align-items: center;
+
+    &::before,
+    &::after{
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor;
+    }
+  }
+
+  &-seenon_logos{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3rem;
+    justify-items: center;
+    align-items: center;
+
+    img{
+      max-height: 2.5rem;   //當高度小於2.5rem時, 就會發生這種情況｡ 響應式
+      max-width: 100%;
+      filter: brightness(70%);  //brightness使圖像顯得更亮或更暗
+    }
+  }
+
+}
